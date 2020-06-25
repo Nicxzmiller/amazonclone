@@ -21,6 +21,29 @@ body{
 
 .header{
     grid-area: header;
+    background-color: darkblue;
+    color: #ffffff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.brand a{
+    color: #ffffff;
+    font-size: 2.5rem;
+    text-decoration: none;
+    text-underline: none;
+    padding:0.5rem;
+}
+
+.header-links a{
+    color: #ffffff;
+    text-decoration: none;
+    text-underline: none;
+}
+
+.header-links a:hover{
+    color: coral;
 }
 
 .main{
@@ -28,5 +51,21 @@ body{
 }
 
 .footer{
+    display: inline-flex;
+    justify-content: center;
     grid-area: footer;
+    background-color: darkblue;
+    color: #ffffff;
+    align-items: center;
+}
+
+.footer a{
+    color: #ffffff;
+    text-decoration: none;
+    text-underline: none;
+    padding: 10px;
+}
+
+.footer a:hover{
+    color: coral;
 }
