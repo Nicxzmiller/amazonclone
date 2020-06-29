@@ -5,7 +5,6 @@ import './App.css';
 function App() {
   return (
       <div className="grid-container">
-          <!--    header-->
           <header className="header">
               <div className="brand">
                   <button onClick="openMenu()">
@@ -18,7 +17,6 @@ function App() {
                   <a href="signin.html">Sign in</a>
               </div>
           </header>
-          <!--        sidebar-->
           <aside className="sidebar">
               <h3>Shopping Categories</h3>
               <button className="sidebar-close-button" onClick="closeMenu()">X</button>
@@ -31,7 +29,7 @@ function App() {
                   </li>
               </ul>
           </aside>
-          <!--    Content-->
+
           <main className="main">
               <div className="content">
                   <ul className="products">
@@ -109,7 +107,7 @@ function App() {
                   </ul>
               </div>
           </main>
-          <!--    Footer-->
+
           <footer className="footer">
               <a href="">Conditions of use</a>
               <a href="">Privacy Notice</a>
