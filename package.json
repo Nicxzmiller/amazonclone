@@ -1,0 +1,19 @@
+{
+  "name": "amazonclone",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Nicxzmiller/amazonclone.git"
+  },
+  "author": "Nicholas",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Nicxzmiller/amazonclone/issues"
+  },
+  "homepage": "https://github.com/Nicxzmiller/amazonclone#readme"
+}
