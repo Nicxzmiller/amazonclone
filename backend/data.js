@@ -10,7 +10,8 @@ export default {
             brand: 'Nike',
             rating: 4.5,
             numReviews: 10,
-            description:'A nice Nike Slim fit shirt for your Summer Chilling :)'
+            description:'A nice Nike Slim fit shirt for your Summer Chilling :)',
+            countInStock:6
         },
         {
             _id:'2',
@@ -22,7 +23,8 @@ export default {
             brand: 'Puma',
             rating: 4.3,
             numReviews: 5,
-            description:''
+            description:'',
+            countInStock:112
         },
         {
             _id:'3',
@@ -34,7 +36,21 @@ export default {
             brand: 'Lacoste',
             rating: 4.2,
             numReviews: 3,
-            description:''
+            description:'',
+            countInStock:25
+        },
+        {
+            _id:'4',
+            name:'Best Pants',
+            category: 'Pants',
+            image: '/images/d1.jpg',
+            currency: '£',
+            price: 80,
+            brand: 'Lacoste',
+            rating: 4.2,
+            numReviews: 3,
+            description:'',
+            countInStock:0
         },
     ]
 };
