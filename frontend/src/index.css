@@ -224,3 +224,23 @@ a:hover{
 .details-info li, .details-action li{
     margin-bottom: 1rem;
 }
+
+/*Cart*/
+
+.cart{
+    display: flex;
+    flex-wrap: wrap;
+    margin: 1rem;
+    align-items: flex-start;
+}
+
+.cart-list{
+    flex: 3 160rem;
+}
+
+.cart-action{
+    flex: 1 1 20rem;
+    background-color: #f8f8f8;
+    border-radius: 1rem;
+    padding: 1rem;
+}
