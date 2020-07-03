@@ -24,7 +24,19 @@ function ProductScreen(props) {
         <div>
             <div>
                 <Link to="/">
-                    <button style={{fontSize:'14px', cursor:'pointer', border: '1px #808080 solid', fontWeight:'bold', padding:'10px', margin:'5px', backgroundColor:'darkblue', color:'#ffffff', borderRadius: '10px', outline:'none'}}>Back to Result</button>
+                    <button style={{
+                        fontSize:'14px',
+                        cursor:'pointer',
+                        border: '1px #808080 solid',
+                        fontWeight:'bold',
+                        padding:'10px',
+                        margin:'5px',
+                        backgroundColor:'darkblue',
+                        color:'#ffffff',
+                        borderRadius: '10px',
+                        outline:'none'}}>
+                        Back to Result
+                    </button>
                 </Link>
             </div>
             {loading ? <div>Loading...</div>:
