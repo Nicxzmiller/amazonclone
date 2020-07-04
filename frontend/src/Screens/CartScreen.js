@@ -15,13 +15,17 @@ function CartScreen(props) {
     const dispatch = useDispatch();
     const removeFromCartHandler = (productId) => {
         dispatch(removeFromCart(productId));
-    }
+    };
     useEffect(() => {
         if(productId){
             dispatch(addToCart(productId, qty))
         }
     }, []);
-    
+
+    const checkoutHandler = () =>{
+        props.history.push("/signin?redirect=shipping");
+    };
+
     return <div className="cart">
         <div className="cart-list">
             <ul className="cart-list-container">
@@ -85,7 +89,7 @@ function CartScreen(props) {
                 borderRadius: '10px',
                 backgroundColor: 'orange',
                 border:' 1px #808080 solid',
-                cursor: 'pointer'}} className="button primary full-width" disabled={cartItems.length === 0}>
+                cursor: 'pointer'}} onClick={checkoutHandler} className="button primary full-width" disabled={cartItems.length === 0}>
                 Proceed to Checkout
             </button>
 
