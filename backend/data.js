@@ -24,7 +24,7 @@ export default {
             rating: 4.3,
             numReviews: 5,
             description:'',
-            countInStock:112
+            countInStock:6
         },
         {
             _id:'3',
@@ -37,7 +37,7 @@ export default {
             rating: 4.2,
             numReviews: 3,
             description:'',
-            countInStock:25
+            countInStock:6
         },
         {
             _id:'4',
@@ -50,7 +50,7 @@ export default {
             rating: 4.2,
             numReviews: 3,
             description:'',
-            countInStock:0
+            countInStock:6
         },
     ]
 };
