@@ -12,6 +12,24 @@ body{
     height: 100%;
 }
 
+button {
+    font-size: 1.6rem;
+}
+.full-width {
+    width: 100%;
+}
+
+.button{
+    padding: 1rem;
+    border: 0.1rem #808080 solid;
+    border-radius: 0.5rem;
+    cursor: pointer;
+}
+
+.button.primary {
+    background-color: #f0c040;
+}
+
 a{
     text-decoration: none;
     text-underline: none;
