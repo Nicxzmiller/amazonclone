@@ -25,7 +25,7 @@ function RegisterScreen(props) {
 
     const submitHandler = (e) => {
         e.preventDefault();
-        dispatch(register(name, email, password, rePassword));
+        dispatch(register(name, email, password,));
     };
 
     return(
@@ -33,7 +33,7 @@ function RegisterScreen(props) {
             <form action="" onSubmit={submitHandler}>
                 <ul className="form-container">
                     <li>
-                        <h2 className="text-center">Register</h2>
+                        <h2 className="text-center">Create Account</h2>
                     </li>
                     <li>
                         {loading && <div>Loading...</div>}
@@ -41,7 +41,7 @@ function RegisterScreen(props) {
                     </li>
                     <li>
                         <label htmlFor="name">Name</label>
-                        <input type="text" name="name" id="name" onChange={(e) => setEmail(e.target.value)}>
+                        <input type="text" name="name" id="name" onChange={(e) => setName(e.target.value)}>
                         </input>
                     </li>
                     <li>
