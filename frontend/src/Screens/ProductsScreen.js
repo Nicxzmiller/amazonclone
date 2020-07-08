@@ -2,6 +2,7 @@ import React, {useEffect, useState} from "react";
 import { Link } from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
 import {signin} from "../actions/userActions";
+import {saveProduct} from "../actions/productActions";
 
 function ProductsScreen(props) {
 
@@ -24,23 +25,23 @@ function ProductsScreen(props) {
         return () => {
             //
         };
-    }, [userInfo]);
+    }, []);
 
     const submitHandler = (e) => {
         e.preventDefault();
-        dispatch(saveProduct({name, price}));
+        dispatch(saveProduct({name, price, image, brand, category, countInStock, description, rating, numReviews}));
     };
 
     return(
         <div className="form">
-            <form action="" onSubmit={submitHandler}>
+            <form onSubmit={submitHandler}>
                 <ul className="form-container">
                     <li>
                         <h2 className="text-center">Create Product</h2>
                     </li>
                     <li>
-                        {loading && <div>Loading...</div>}
-                        {error && <div>{error}</div>}
+                        {loadingSave && <div>Loading...</div>}
+                        {errorSave && <div>{errorSave}</div>}
                     </li>
                     <li>
                         <label htmlFor="name">Name</label>
@@ -54,7 +55,7 @@ function ProductsScreen(props) {
                     </li>
                     <li>
                         <label htmlFor="image">Image</label>
-                        <input type="text" name="name" id="name" onChange={(e) => setImage(e.target.value)}>
+                        <input type="text" name="image" id="image" onChange={(e) => setImage(e.target.value)}>
                         </input>
                     </li>
                     <li>
