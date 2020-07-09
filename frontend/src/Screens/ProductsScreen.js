@@ -11,8 +11,6 @@ function ProductsScreen(props) {
     const [image, setImage] = useState('');
     const [brand, setBrand] = useState('');
     const [category, setCategory] = useState('');
-    const [numReviews, setNumReviews] = useState('');
-    const [rating, setRating] = useState('');
     const [countInStock, setCountInSock] = useState('');
     const [description, setDescription] = useState('');
 
@@ -38,14 +36,20 @@ function ProductsScreen(props) {
         setImage(product.image);
         setBrand(product.brand);
         setCategory(product.category);
+        setDescription(product.description);
         setCountInSock(product.countInStock);
-        setRating(product.rating);
-        setNumReviews(product.numReviews);
     };
 
     const submitHandler = (e) => {
         e.preventDefault();
-        dispatch(saveProduct({name, price, image, brand, category, countInStock, description}));
+        dispatch(saveProduct({
+            _id:id,
+            name, price,
+            image, brand,
+            category,
+            countInStock,
+            description
+        }));
     };
 
     return(
@@ -68,44 +72,44 @@ function ProductsScreen(props) {
                             </li>
                             <li>
                                 <label htmlFor="name">Name</label>
-                                <input type="text" name="name" id="name" onChange={(e) => setName(e.target.value)}>
+                                <input type="text" name="name" id="name" value={name} onChange={(e) => setName(e.target.value)}>
                                 </input>
                             </li>
                             <li>
                                 <label htmlFor="price">Price</label>
-                                <input type="number" name="price" id="price" onChange={(e) => setPrice(e.target.value)}>
+                                <input type="number" name="price" id="price" value={price} onChange={(e) => setPrice(e.target.value)}>
                                 </input>
                             </li>
                             <li>
                                 <label htmlFor="image">Image</label>
-                                <input type="text" name="image" id="image" onChange={(e) => setImage(e.target.value)}>
+                                <input type="text" name="image" id="image" value={image} onChange={(e) => setImage(e.target.value)}>
                                 </input>
                             </li>
                             <li>
                                 <label htmlFor="brand">Brand</label>
-                                <input type="text" name="brand" id="brand" onChange={(e) => setBrand(e.target.value)}>
+                                <input type="text" name="brand" id="brand" value={brand} onChange={(e) => setBrand(e.target.value)}>
                                 </input>
                             </li>
                             <li>
                                 <label htmlFor="category">Category</label>
-                                <input type="text" name="category" id="category"
+                                <input type="text" name="category" id="category" value={category}
                                        onChange={(e) => setCategory(e.target.value)}>
                                 </input>
                             </li>
                             <li>
                                 <label htmlFor="countInStock">Number in Stock</label>
-                                <input type="text" name="countInStock" id="countInStock"
+                                <input type="text" name="countInStock" id="countInStock" value={countInStock}
                                        onChange={(e) => setCountInSock(e.target.value)}>
                                 </input>
                             </li>
                             <li>
                                 <label htmlFor="description">Description</label>
-                                <textarea name="description" id="description"
+                                <textarea name="description" id="description" value={description}
                                           onChange={(e) => setDescription(e.target.value)}>
                             </textarea>
                             </li>
                             <li>
-                                <button type="submit" className="button primary">Create</button>
+                                <button type="submit" className="button primary">{id ? "Update":"Create" }</button>
                             </li>
                             <li>
                                 <button type="button" onClick={() => setModalVisible(false)} className="button secondary">Cancel</button>
