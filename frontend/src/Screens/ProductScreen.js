@@ -40,7 +40,7 @@ function ProductScreen(props) {
                             <ul>
                                 <li><h4>{product.name}</h4></li>
                                 <li>{product.rating} Stars {product.numReviews} reviews</li>
-                                <li>Price:<b> {product.currency}{product.price}</b></li>
+                                <li>Price:<b> $ {product.price}</b></li>
                                 <li>
                                     Description:
                                     <div>{product.description}</div>
@@ -49,7 +49,7 @@ function ProductScreen(props) {
                         </div>
                         <div className="details-action">
                             <ul>
-                                <li>Price: <b>{product.currency}{product.price}</b></li>
+                                <li>Price: <b>$ {product.price}</b></li>
                                 <li>Status: {product.countInStock > 0 ? "In Stock" : "Out of Stock"}</li>
                                 <li>Qty:{' '}
                                     <select name="" id="" value={qty} onChange={(e) => {setQty(e.target.value)}}>
