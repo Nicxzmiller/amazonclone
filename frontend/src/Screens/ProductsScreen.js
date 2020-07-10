@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
-import {listProducts, saveProduct} from "../actions/productActions";
+import {deleteProduct, listProducts, saveProduct} from "../actions/productActions";
 
 function ProductsScreen(props) {
 
@@ -13,20 +13,26 @@ function ProductsScreen(props) {
     const [category, setCategory] = useState('');
     const [countInStock, setCountInSock] = useState('');
     const [description, setDescription] = useState('');
-
     const productList = useSelector(state => state.productList);
     const {loading, products, error} = productList;
-    const productSave = useSelector(state => state.userSignin);
+
+    const productSave = useSelector(state => state.productSave);
     const {loading: loadingSave, success: successSave, error: errorSave } = productSave;
+
+    const productDelete = useSelector(state => state.productDelete);
+    const {loading: loadingDelete, success: successDelete, error: errorDelete } = productDelete;
 
     const dispatch = useDispatch();
 
     useEffect(() => {
+        if(successSave){
+            setModalVisible(false);
+        }
         dispatch(listProducts());
         return () => {
             //
         };
-    }, []);
+    }, [successSave, successDelete]);
 
     const openModal = (product) => {
         setModalVisible(true);
@@ -50,6 +56,10 @@ function ProductsScreen(props) {
             countInStock,
             description
         }));
+    };
+
+    const deleteHandler = (product) => {
+        dispatch(deleteProduct(product._id));
     };
 
     return(
@@ -141,7 +151,7 @@ function ProductsScreen(props) {
                                     <td>{product.brand}</td>
                                     <td>
                                         <button className="edit" onClick={() => openModal(product)}>Edit</button>
-                                        <button className="delete">Delete</button>
+                                        <button className="delete" onClick={() => deleteHandler(product)}>Delete</button>
                                     </td>
                                 </tr>
                             ))}
