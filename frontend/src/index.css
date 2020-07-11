@@ -455,6 +455,6 @@ input{
 }
 
 .checkout-steps > div.active{
-    border-bottom: .3rem #f0c040 solid;
-    color: #f0c040;
+    border-bottom: .3rem orangered solid;
+    color: orangered;
 }
