@@ -436,3 +436,25 @@ input{
     transition: all 0.4s ease 0s;
     cursor: pointer;
 }
+
+/*Checkout steps*/
+
+.checkout-steps{
+    display: flex;
+    justify-content: space-between;
+    width: 40rem;
+    margin: 1rem auto;
+}
+
+.checkout-steps > div{
+    border-bottom: .3rem #c0c0c0 solid;
+    color: #c0c0c0;
+    flex: 1 1;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+.checkout-steps > div.active{
+    border-bottom: .3rem #f0c040 solid;
+    color: #f0c040;
+}
