@@ -51,6 +51,9 @@ function SigninScreen(props) {
                     <li>
                         <button type="submit" className="button primary">Sign in</button>
                     </li>
+                    <p>
+                        By continuing, you agree to Amazonclone's Conditions of Use and Privacy Notice.
+                    </p>
                     <li> <b>New to Amazonclone ?</b> </li>
                     <li>
                         <Link to={redirect === "/" ? "register": "register?redirect=" + redirect} className="button secondary text-center">Create your Amazonclone account</Link>

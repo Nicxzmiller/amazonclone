@@ -60,6 +60,9 @@ function RegisterScreen(props) {
                     <li>
                         <button type="submit" className="button primary">Register</button>
                     </li>
+                    <p>
+                        By creating an account, you agree to Amazonclone's Conditions of Use and Privacy Notice.
+                    </p>
                     <li> Already have an account?
                         <Link to={redirect === "/" ? "signin": "signin?redirect=" + redirect} className="button secondary text-center"> Sign in </Link>
                     </li>

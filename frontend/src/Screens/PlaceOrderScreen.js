@@ -1,6 +1,5 @@
 import React, {useEffect} from "react";
 import {useDispatch, useSelector} from "react-redux";
-
 import {Link} from "react-router-dom";
 import CheckoutSteps from "../components/CheckoutSteps";
 
@@ -11,16 +10,22 @@ function PlaceOrderScreen(props) {
 
     const {cartItems, shipping, payment } = cart;
 
-    if(!shipping){
+    if(!shipping.address){
         props.history.push("/shipping");
-    }
-
-    if(!payment){
+    }else if(!payment.paymentMethod){
         props.history.push("/payment");
     }
 
+    const itemsPrice = cartItems.reduce((a, c) => a + c.price * c.qty, 0);
+    const shippingPrice = itemsPrice > 100 ? 0 : 10;
+    const taxPrice = 0.15 * itemsPrice;
+    const totalPrice = itemsPrice + shippingPrice + taxPrice;
+
     const dispatch = useDispatch();
 
+    const placeOrderHandler = () => {
+        //create an order
+    };
     useEffect(() => {
 
     }, []);
@@ -90,6 +95,30 @@ function PlaceOrderScreen(props) {
 
             </div>
             <div className="placeorder-action">
+                <ul>
+                    <li>
+                        <button onClick={placeOrderHandler}> Place Order</button>
+                    </li>
+                    <li>
+                        <h3>Order Summary</h3>
+                    </li>
+                    <li>
+                        <div>Items</div>
+                        <div>${itemsPrice}</div>
+                    </li>
+                    <li>
+                        <div>Shipping</div>
+                        <div>${shippingPrice}</div>
+                    </li>
+                    <li>
+                        <div>Tax</div>
+                        <div>${taxPrice}</div>
+                    </li>
+                    <li>
+                        <div>Order Total</div>
+                        <div>${totalPrice}</div>
+                    </li>
+                </ul>
                 <h3>
                     Subtotal ( {cartItems.reduce((a, c) => a + c.qty, 0)} items)
                     :

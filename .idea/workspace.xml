@@ -3,10 +3,11 @@
   <component name="ChangeListManager">
     <list default="true" id="44916dbf-ddfe-4067-91c0-702d98bfd30d" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/Screens/PaymentScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/Screens/PaymentScreen.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/Screens/PlaceOrderScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/Screens/PlaceOrderScreen.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/Screens/ShippingScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/Screens/ShippingScreen.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/reducers/cartReducers.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/reducers/cartReducers.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/Screens/RegisterScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/Screens/RegisterScreen.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/Screens/SigninScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/Screens/SigninScreen.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/index.css" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -62,7 +63,7 @@
       <option name="presentableId" value="Default" />
       <updated>1593094289692</updated>
       <workItem from="1593094291148" duration="10281000" />
-      <workItem from="1593830442330" duration="65625000" />
+      <workItem from="1593830442330" duration="70172000" />
     </task>
     <servers />
   </component>
