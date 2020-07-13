@@ -12,7 +12,7 @@ function PaymentScreen(props) {
 
     const submitHandler = (e) => {
         e.preventDefault();
-        dispatch(savePayment(paymentMethod));
+        dispatch(savePayment({paymentMethod}));
         props.history.push('placeorder');
     };
 
