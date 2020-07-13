@@ -11,11 +11,11 @@ function PlaceOrderScreen(props) {
 
     const {cartItems, shipping, payment } = cart;
 
-    if(!shipping){
+    if(!shipping.address){
         props.history.push("/shipping");
     }
 
-    if(!payment){
+    if(!payment.paymentMethod){
         props.history.push("/payment");
     }
 
