@@ -15,7 +15,7 @@ function ShippingScreen(props) {
 
     const submitHandler = (e) => {
         e.preventDefault();
-        dispatch(saveShipping(address, city, country, postalCode));
+        dispatch(saveShipping({address, city, country, postalCode}));
         props.history.push('payment');
     };
 
