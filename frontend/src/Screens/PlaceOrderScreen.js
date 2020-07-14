@@ -25,6 +25,7 @@ function PlaceOrderScreen(props) {
 
     const placeOrderHandler = () => {
         //create an order
+
     };
     useEffect(() => {
 
@@ -97,7 +98,7 @@ function PlaceOrderScreen(props) {
             <div className="placeorder-action">
                 <ul>
                     <li>
-                        <button onClick={placeOrderHandler}> Place Order</button>
+                        <button className="button primary full-width" onClick={placeOrderHandler}> Place Order</button>
                     </li>
                     <li>
                         <h3>Order Summary</h3>
@@ -119,14 +120,7 @@ function PlaceOrderScreen(props) {
                         <div>${totalPrice}</div>
                     </li>
                 </ul>
-                <h3>
-                    Subtotal ( {cartItems.reduce((a, c) => a + c.qty, 0)} items)
-                    :
-                    $ {cartItems.reduce((a, c) => a + c.price * c.qty, 0)}
-                </h3>
-                <button onClick={checkoutHandler} className="button primary full-width" disabled={cartItems.length === 0}>
-                    Proceed to Checkout
-                </button>
+
 
             </div>
 
