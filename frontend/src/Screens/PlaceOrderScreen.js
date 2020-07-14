@@ -2,11 +2,15 @@ import React, {useEffect} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import {Link} from "react-router-dom";
 import CheckoutSteps from "../components/CheckoutSteps";
+import {createOrder} from "../actions/orderActions";
+
 
 
 function PlaceOrderScreen(props) {
 
     const cart = useSelector(state => state.cart);
+    const orderCreate = useSelector(state => state.orderCreate);
+    const {loading, success, error, order} = orderCreate;
 
     const {cartItems, shipping, payment } = cart;
 
@@ -25,14 +29,16 @@ function PlaceOrderScreen(props) {
 
     const placeOrderHandler = () => {
         //create an order
+        dispatch(createOrder({
+            orderItems: cartItems, shipping, payment, itemsPrice, shippingPrice, taxPrice, totalPrice
+        }));
     };
     useEffect(() => {
+        if(success){
+            props.history.push("/order/" + order._id);
+        }
+    }, [success]);
 
-    }, []);
-
-    const checkoutHandler = () =>{
-        props.history.push("/signin?redirect=shipping");
-    };
 
     return  (
         <div>
@@ -97,7 +103,7 @@ function PlaceOrderScreen(props) {
             <div className="placeorder-action">
                 <ul>
                     <li>
-                        <button onClick={placeOrderHandler}> Place Order</button>
+                        <button className="button primary full-width" onClick={placeOrderHandler}> Place Order</button>
                     </li>
                     <li>
                         <h3>Order Summary</h3>
@@ -119,14 +125,7 @@ function PlaceOrderScreen(props) {
                         <div>${totalPrice}</div>
                     </li>
                 </ul>
-                <h3>
-                    Subtotal ( {cartItems.reduce((a, c) => a + c.qty, 0)} items)
-                    :
-                    $ {cartItems.reduce((a, c) => a + c.price * c.qty, 0)}
-                </h3>
-                <button onClick={checkoutHandler} className="button primary full-width" disabled={cartItems.length === 0}>
-                    Proceed to Checkout
-                </button>
+
 
             </div>
 
