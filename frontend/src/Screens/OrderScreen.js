@@ -1,30 +1,32 @@
 import React, {useEffect} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import {Link} from "react-router-dom";
+import {detailsOrder} from "../actions/orderActions";
 
 
 function OrderScreen(props) {
-
+    const dispatch = useDispatch();
     useEffect(() => {
-        detailsOrder(props.match.params.id)
+        dispatch(detailsOrder(props.match.params.id));
         return () => {
-            cleanup
+
         };
     }, []);
 
     const orderDetails = useSelector(state => state.orderDetails);
     const {loading, order, error} = orderDetails;
+    const payHandler =() => { };
 
     return (
+        loading ? <div>Loading...</div>: error ? <div>{error}</div>:
         <div>
-            loading ? <div>Loading...</div>: error ? <div>{error}</div>:
             <div className="placeorder">
                 <div className="placeorder-info">
                     <div>
                         <h3>Shipping</h3>
                         <div>
-                            {cart.shipping.address}, {cart.shipping.city},
-                            {cart.shipping.postalCode}, {cart.shipping.country}
+                            {order.shipping.address}, {order.shipping.city},
+                            {order.shipping.postalCode}, {order.shipping.country}
                         </div>
                         <div>
                             {order.isDelivered?"Delivered at " + order.deliveredAt : "Not delivered"}
@@ -33,7 +35,7 @@ function OrderScreen(props) {
                     <div>
                         <h3>Payment</h3>
                         <div>
-                            Payment Method: {cart.payment.paymentMethod}
+                            Payment Method: {order.payment.paymentMethod}
                         </div>
                         <div>
                             {order.isPaid ?"Paid at " + order.paidAt : "Not yet paid"}
@@ -55,7 +57,7 @@ function OrderScreen(props) {
                                         Cart is empty
                                     </div>
                                     :
-                                    cartItems.map(item =>
+                                    order.orderItems.map(item =>
                                         <li>
                                             <div className="cart-image">
                                                 <img src={item.image} alt="product" />
@@ -84,26 +86,26 @@ function OrderScreen(props) {
                 <div className="placeorder-action">
                     <ul>
                         <li>
-                            <button className="button primary full-width" onClick={placeOrderHandler}> Place Order</button>
+                            <button className="button primary full-width" onClick={payHandler}> Pay Now</button>
                         </li>
                         <li>
                             <h3>Order Summary</h3>
                         </li>
                         <li>
                             <div>Items</div>
-                            <div>${itemsPrice}</div>
+                            <div>${order.itemsPrice}</div>
                         </li>
                         <li>
                             <div>Shipping</div>
-                            <div>${shippingPrice}</div>
+                            <div>${order.shippingPrice}</div>
                         </li>
                         <li>
                             <div>Tax</div>
-                            <div>${taxPrice}</div>
+                            <div>${order.taxPrice}</div>
                         </li>
                         <li>
                             <div>Order Total</div>
-                            <div>${totalPrice}</div>
+                            <div>${order.totalPrice}</div>
                         </li>
                     </ul>
 
