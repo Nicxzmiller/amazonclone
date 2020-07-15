@@ -132,7 +132,7 @@ function PlaceOrderScreen(props) {
         </div>
 
         </div>
-)
+    )
 }
 
 export default PlaceOrderScreen;
