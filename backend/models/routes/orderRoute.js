@@ -5,7 +5,7 @@ import {isAuth} from "../../util";
 const router = express.Router();
 
 router.get("/:id", isAuth, async(req, res) => {
-   const order = Order.findOne({_id:req.params.id});
+   const order = await Order.findOne({_id:req.params.id});
    if(order){
        res.send(order);
    }else{
