@@ -506,3 +506,7 @@ input{
     color: #c04000;
 }
 
+.placeorder-actions-payment > div{
+    width: 100%;
+}
+
