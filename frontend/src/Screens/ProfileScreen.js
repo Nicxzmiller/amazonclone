@@ -1,6 +1,8 @@
 import React, {useEffect, useState} from "react";
 import {logout, update } from "../actions/userActions";
+import {listMyOrders } from "../actions/orderActions";
 import {useDispatch, useSelector} from "react-redux";
+import { Link } from "react-router-dom";
 
 function ProfileScreen(props) {
     const [name, setName] = useState('');
@@ -24,16 +26,20 @@ function ProfileScreen(props) {
     const userUpdate = useSelector(state => state.userUpdate);
     const {loading, success, error} = userUpdate;
 
+    const myOrderList = useSelector(state => state.myOrderList);
+    const {loading:loadingOrders, orders, error:errorOrders} = myOrderList;
+
     useEffect(() => {
         if(userInfo){
             setEmail(userInfo.email);
             setName(userInfo.name);
             setPassword(userInfo.password);
         }
+        dispatch(listMyOrders());
         return () => {
 
         }
-    }, []);
+    }, [userInfo]);
 
     return <div className="profile">
         <div className="profile-info">
@@ -79,7 +85,31 @@ function ProfileScreen(props) {
         </div>
 
         <div className="profile-orders">
-
+            {
+                loadingOrders ? <div>Loading...</div>: errorOrders ? <div>{errorOrders}</div>:
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>DATE</th>
+                            <th>TOTAL</th>
+                            <th>PAID</th>
+                            <th>ACTION</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {orders.map(order => <tr key={order._id}>
+                            <td>{order._id}</td>
+                            <td>{order.createdAt}</td>
+                            <td>{order.totalPrice}</td>
+                            <td>{order.isPaid}</td>
+                            <td>
+                                <Link to={"/order/" + order._id}>DETAILS</Link>
+                            </td>
+                        </tr>)}
+                    </tbody>
+                </table>
+            }
         </div>
     </div>
 }
