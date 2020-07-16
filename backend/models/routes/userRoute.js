@@ -1,9 +1,10 @@
 import express from 'express';
 import User from '../../models/userModel';
-import {getToken} from "../../util";
+import {getToken, isAuth} from "../../util";
 
 const router = express.Router();
 
+// sign in and authentication
 router.post('/signin', async(req, res) => {
     const signinUser = await User.findOne({
         email:req.body.email,
@@ -23,6 +24,28 @@ router.post('/signin', async(req, res) => {
     }
 });
 
+// Updating user credentials
+router.put('/:id', isAuth, async(req, res) => {
+    const userId = req.params.id;
+    const user = await User.findById(userId);
+    if(user){
+        user.name = req.body.name || user.name;
+        user.email = req.body.email || user.email;
+        user.password = req.body.password || user.password;
+        const updatedUser = await user.save();
+        res.send({
+            _id:updatedUser.id,
+            name:updatedUser.name,
+            email:updatedUser.email,
+            isAdmin:updatedUser.isAdmin,
+            token:getToken(updatedUser)
+        });
+    } else{
+        res.status(404).send({message:'An error occurred while trying to update credentials'})
+    }
+});
+
+// user registration
 router.post('/register', async(req, res) => {
     const user = new User({
         name:req.body.name,
@@ -44,6 +67,7 @@ router.post('/register', async(req, res) => {
     }
 });
 
+// creating of admin
 router.get("/createadmin", async (req, res) => {
     try{
         const user = new User({
